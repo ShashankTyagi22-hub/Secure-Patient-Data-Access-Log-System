@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secure Patient Data Access System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <i class="fa-solid fa-shield-halved"></i>
+        MedSecure
+    </div>
+
+    <ul>
+        <li class="active">
+            <i class="fas fa-chart-line"></i>
+            Dashboard
+        </li>
+
+        <li>
+            <i class="fas fa-user-shield"></i>
+            Access Logs
+        </li>
+
+        <li>
+            <i class="fas fa-user-doctor"></i>
+            Doctors
+        </li>
+
+        <li>
+            <i class="fas fa-hospital-user"></i>
+            Patients
+        </li>
+
+        <li>
+            <i class="fas fa-triangle-exclamation"></i>
+            Alerts
+        </li>
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Secure Patient Data Access Log System</h1>
+
+        <div class="admin">
+    <i class="fas fa-user-shield"></i>
+    System Administrator
+</div>
+
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card blue">
+            <h3>2,458</h3>
+            <p>Total Logs</p>
+        </div>
+
+        <div class="card green">
+            <h3>1,874</h3>
+            <p>Authorized Access</p>
+        </div>
+
+        <div class="card red">
+            <h3>27</h3>
+            <p>Security Alerts</p>
+        </div>
+
+        <div class="card purple">
+            <h3>432</h3>
+            <p>Active Patients</p>
+        </div>
+
+    </div>
+
+    <div class="chartSection">
+
+        <div class="chartCard">
+            <h2>Access Analytics</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="activity">
+
+            <h2>Recent Activities</h2>
+
+            <div class="activityItem">
+                ✅ Dr. Sharma viewed Patient #1002
+            </div>
+
+            <div class="activityItem">
+                ⚠ Unauthorized Login Attempt
+            </div>
+
+            <div class="activityItem">
+                📝 Nurse Edited Patient Record
+            </div>
+
+            <div class="activityItem">
+                🔒 Account Locked
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="logSection">
+
+        <div class="header">
+            <h2>Patient Access Logs</h2>
+
+            <button id="openModal">
+                + Add Log
+            </button>
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Log ID</th>
+                    <th>User</th>
+                    <th>Patient</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="logsTable"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="modal" id="logModal">
+
+    <div class="modalContent">
+
+        <h2>Add New Access Log</h2>
+
+        <input type="text" id="userName"
+        placeholder="Doctor Name">
+
+        <input type="text" id="patientId"
+        placeholder="Patient ID">
+
+        <select id="role">
+            <option>Doctor</option>
+            <option>Nurse</option>
+            <option>Admin</option>
+        </select>
+
+        <select id="action">
+            <option>Viewed</option>
+            <option>Edited</option>
+            <option>Deleted</option>
+        </select>
+
+        <button onclick="addLog()">
+            Save Log
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
